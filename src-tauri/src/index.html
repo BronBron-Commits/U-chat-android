@@ -37,19 +37,20 @@
         border: none;
         border-radius: 6px;
         font-size: 16px;
-        cursor: pointer;
       }
-      #error { color: red; margin-top: 10px; }
+      #error {
+        margin-top: 8px;
+        color: red;
+        font-size: 14px;
+      }
     </style>
   </head>
-
   <body>
     <div id="card">
-      <h2>U-Chat</h2>
-
-      <input id="username" type="text" placeholder="Username" />
+      <h2>Login</h2>
+      <input id="username" placeholder="Username" />
       <input id="password" type="password" placeholder="Password" />
-      <button onclick="login()">Log In</button>
+      <button onclick="login()">Login</button>
       <div id="error"></div>
     </div>
 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>U-Chat</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        background: #f3f3f3;
+      }
+      #topbar {
+        background: #0078ff;
+        color: white;
+        padding: 12px;
+        font-size: 20px;
+      }
+      #messages {
+        padding: 12px;
+        height: calc(100vh - 110px);
+        overflow-y: auto;
+      }
+      #inputbar {
+        display: flex;
+        gap: 8px;
+        padding: 12px;
+        background: white;
+        border-top: 1px solid #ddd;
+      }
+      #msg {
+        flex: 1;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+      button {
+        padding: 10px 16px;
+        background: #0078ff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="topbar">U-Chat</div>
+    <div id="messages"></div>
+    <div id="inputbar">
+      <input id="msg" placeholder="Type..." />
+      <button onclick="sendMsg()">Send</button>
+    </div>
+
+    <script>
+      function sendMsg() {
+        const m = document.getElementById("msg").value.trim();
+        if (!m) return;
+        document.getElementById("messages").innerHTML += "<div>" + m + "</div>";
+        document.getElementById("msg").value = "";
+      }
+    </script>
+  </body>
+</html>

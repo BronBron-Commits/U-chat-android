@@ -13,20 +13,18 @@ async function login() {
   }
 
   try {
-    const token = await invoke("login_request", {
-      username: user,
-      password: pass
-    });
+    const token = await invoke("login", { username: user, password: pass });
 
-    if (!token) {
-      err.innerText = "Invalid login";
-      return;
-    }
+    console.log("TOKEN:", token);
 
-    err.innerText = "Logged in!";
-    console.log("JWT =", token);
+    err.style.color = "green";
+    err.innerText = "Login successful";
+
+    setTimeout(() => {
+      window.location.href = "chat.html";
+    }, 600);
   } catch (e) {
+    err.innerText = "Invalid credentials";
     console.error(e);
-    err.innerText = "Login failed";
   }
 }
