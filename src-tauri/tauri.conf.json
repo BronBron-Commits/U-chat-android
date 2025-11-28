@@ -1,0 +1,28 @@
+{
+  "productName": "UChat",
+  "version": "0.1.0",
+  "identifier": "com.unhidra.uchat",
+
+  "build": {
+    "frontendDist": "../src",
+    "devUrl": "tauri://localhost"
+  },
+
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "UChat",
+        "width": 400,
+        "height": 500,
+        "resizable": true
+      }
+    ]
+  },
+
+  "bundle": {
+    "active": false
+  },
+
+  "plugins": {}
+}
