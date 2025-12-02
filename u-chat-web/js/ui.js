@@ -1,4 +1,3 @@
-// Display a message on the screen
 function addMessage(user, text) {
   const messages = document.getElementById("messages");
 
@@ -6,18 +5,17 @@ function addMessage(user, text) {
   div.className = "message";
 
   const self = localStorage.getItem("username");
+  if (user === self) div.classList.add("you");
 
-  if (user === self) {
-    div.classList.add("you");
-  }
+  // Heart avatar for you, dot avatar for others
+  const avatar = user === self ? "♥" : "●";
 
-  div.innerText = user + ": " + text;
+  div.innerText = avatar + " " + user + ": " + text;
+
   messages.appendChild(div);
-
   messages.scrollTop = messages.scrollHeight;
 }
 
-// Send message to WebSocket
 function sendMessage() {
   const box = document.getElementById("msgBox");
   const text = box.value;
@@ -29,12 +27,10 @@ function sendMessage() {
   box.value = "";
 }
 
-// Send via Enter key
 function sendOnEnter(event) {
   if (event.key === "Enter") sendMessage();
 }
 
-// Logout
 function logout() {
   localStorage.removeItem("username");
   window.location = "index.html";
@@ -42,7 +38,7 @@ function logout() {
 
 window.onload = () => {
   const name = localStorage.getItem("username");
-  if (name) {
+  if (name && document.getElementById("usernameDisplay")) {
     document.getElementById("usernameDisplay").innerText = name;
   }
 
